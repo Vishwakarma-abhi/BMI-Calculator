@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/bmi_result.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,6 +19,9 @@ class _HomeState extends State<Home> {
   double value = 30;
   double age = 18;
   double height = 30;
+
+  int selectedCard = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,25 +58,73 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                  child: Icon(
-                    Icons.male,
-                    size: 60.0,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedCard = 0;
+                    });
+                  },
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: selectedCard == 0 ? Colors.blue : Colors.amber,
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Icon(
+                          Icons.male,
+                          size: 60.0,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          'MALE',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    height: 100.0,
+                    width: 100.0,
                   ),
-                  color: Colors.amber,
-                  height: 100.0,
-                  width: 100.0,
                 ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                  child: Icon(
-                    Icons.female,
-                    size: 60.0,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedCard = 1;
+                    });
+                  },
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Icon(
+                          Icons.female,
+                          size: 60.0,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          'FEMALE',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: selectedCard == 1 ? Colors.blue : Colors.amber,
+                    ),
+                    height: 100.0,
+                    width: 100.0,
                   ),
-                  color: Colors.amber,
-                  height: 100.0,
-                  width: 100.0,
                 ),
               ],
             ),
@@ -181,7 +233,13 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Result()),
+                          );
+                        },
                         child: Text('CALCULATE'),
                       )
                     ],
