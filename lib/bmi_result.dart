@@ -1,35 +1,59 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'formula_bmi.dart';
 
-class Result extends StatefulWidget {
-  double value;
-  double age;
-  double height;
-  Result{{@required this.value, @required this.height, this.age}}
-  const Result({Key? key}) : super(key: key);
-
-  
-
+class ResultPage extends StatefulWidget {
+  double weight, height, age;
+  // ignore: use_key_in_widget_constructors
+  ResultPage({
+    required this.weight,
+    required this.height,
+    required this.age,
+  });
 
   @override
-  State<Result> createState() => _ResultState();
+  State<ResultPage> createState() => _ResultPageState();
 }
 
-class _ResultState extends State<Result> {
+class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
-        title: Text('RESULT'),
+        title: Text(
+          'RESULT',
+        ),
         centerTitle: true,
       ),
-
-      body: Column(
-        children: [
-          Text(
-            ''
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(25.0),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.fromLTRB(0.0, 155.0, 0.0, 0.0),
+              child: Center(
+                child: Text(
+                  '',
+                  style: TextStyle(
+                    fontFamily: 'Secular',
+                    fontSize: 50,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              '" You are Overweight "',
+              style: TextStyle(
+                fontFamily: 'Secular',
+                fontSize: 30,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
