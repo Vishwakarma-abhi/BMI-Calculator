@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'formula_bmi.dart';
 
 class ResultPage extends StatefulWidget {
-  double weight, height, age;
-  // ignore: use_key_in_widget_constructors
+  int weight;
+  int height;
+  int age;
   ResultPage({
     required this.weight,
     required this.height,
-    required this.age,
+    this.age,
   });
 
   @override
@@ -17,6 +18,12 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
+  double bmi = 0.0;
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

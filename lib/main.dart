@@ -126,11 +126,12 @@ class _HomeState extends State<Home> {
                         padding: const EdgeInsets.all(14.0),
                         child: Column(
                           children: [
+                            //Height
                             Text(
                               'HEIGHT',
                               style: TextStyle(
                                 fontFamily: 'Secular',
-                                fontSize: 12.0,
+                                fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -138,12 +139,156 @@ class _HomeState extends State<Home> {
                               height: 5,
                             ),
                             Text(
-                              '$height',
+                              '$height cm',
                               style: TextStyle(
                                 fontFamily: 'Secular',
                                 fontSize: 25.0,
                                 fontWeight: FontWeight.bold,
                               ),
+                            ),
+                            Slider(
+                                activeColor: Colors.white,
+                                inactiveColor: Colors.grey,
+                                value: height,
+                                min: 30,
+                                max: 120,
+                                divisions: 100,
+                                label: height.round().toString(),
+                                onChanged: (value) => setState(() {
+                                      this.height = value;
+                                    })),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            //Age and Weight
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.blue,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              'AGE',
+                              style: TextStyle(
+                                fontFamily: 'Secular',
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              '$age yrs',
+                              style: TextStyle(
+                                fontFamily: 'Secular',
+                                fontSize: 25.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                GestureDetector(
+                                  onTap: (() {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  }),
+                                  child: CircleAvatar(
+                                    child: Icon(Icons.add),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      age--;
+                                    });
+                                  },
+                                  child: CircleAvatar(
+                                    child: Icon(Icons.remove),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.blue,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              'WEIGHT',
+                              style: TextStyle(
+                                fontFamily: 'Secular',
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              '$weight Kg',
+                              style: TextStyle(
+                                fontFamily: 'Secular',
+                                fontSize: 25.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      weight += 1;
+                                    });
+                                  },
+                                  child: CircleAvatar(
+                                    child: Icon(Icons.add),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      weight -= 1;
+                                    });
+                                  },
+                                  child: CircleAvatar(
+                                    child: Icon(Icons.remove),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -153,39 +298,38 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
+
             Expanded(
               child: Row(
                 children: [
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.fromLTRB(0.0, 110.0, 0.0, 0.0),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
                         color: Colors.blue,
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.blue,
+                      child: GestureDetector(
+                        onTap: (() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ResultPage(
+                                      weight: 90,
+                                      height: 130,
+                                      age: 16,
+                                    )),
+                          );
+                        }),
+                        child: Center(
+                          child: Text(
+                            'CALCULATE',
+                            style: TextStyle(
+                              fontFamily: 'Secular',
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
