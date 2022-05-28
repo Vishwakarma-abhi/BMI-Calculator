@@ -18,9 +18,13 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
+  formula form = formula();
   double bmi = 0.0;
+  String status = "";
   @override
   void initState() {
+    bmi = form.bmi_calulation(widget.height, widget.weight);
+    status = form.status(bmi);
     super.initState();
   }
 
@@ -41,7 +45,7 @@ class _ResultPageState extends State<ResultPage> {
               margin: EdgeInsets.fromLTRB(0.0, 155.0, 0.0, 0.0),
               child: Center(
                 child: Text(
-                  '',
+                  '${bmi.toStringAsFixed(1)}',
                   style: TextStyle(
                     fontFamily: 'Secular',
                     fontSize: 50,
@@ -53,10 +57,11 @@ class _ResultPageState extends State<ResultPage> {
               height: 20,
             ),
             Text(
-              '" You are Overweight "',
+              '$status',
               style: TextStyle(
                 fontFamily: 'Secular',
                 fontSize: 30,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],

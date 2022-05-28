@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
                         margin: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: selectedCard == 0 ? Colors.blue : Colors.amber,
+                          color: selectedCard == 0 ? Colors.amber : Colors.blue,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
                         margin: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: selectedCard == 1 ? Colors.blue : Colors.amber,
+                          color: selectedCard == 1 ? Colors.amber : Colors.blue,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -139,7 +139,7 @@ class _HomeState extends State<Home> {
                               height: 5,
                             ),
                             Text(
-                              '$height cm',
+                              '${height.toStringAsFixed(2)} cm',
                               style: TextStyle(
                                 fontFamily: 'Secular',
                                 fontSize: 25.0,
@@ -307,7 +307,7 @@ class _HomeState extends State<Home> {
                       margin: EdgeInsets.fromLTRB(55.0, 20.0, 55.0, 75.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: selectedCard == 0 ? Colors.blue : Colors.amber,
+                        color: Colors.blue,
                       ),
                       child: GestureDetector(
                         onTap: (() {
@@ -315,9 +315,9 @@ class _HomeState extends State<Home> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => ResultPage(
-                                      weight: 90,
-                                      height: 130,
-                                      age: 16,
+                                      weight: weight.toInt(),
+                                      height: height.toInt(),
+                                      age: age.toInt(),
                                     )),
                           );
                         }),
