@@ -10,7 +10,7 @@ class ResultPage extends StatefulWidget {
   ResultPage({
     required this.weight,
     required this.height,
-    this.age,
+    required this.age,
   });
 
   @override

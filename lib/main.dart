@@ -304,9 +304,10 @@ class _HomeState extends State<Home> {
                 children: [
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.fromLTRB(0.0, 110.0, 0.0, 0.0),
+                      margin: EdgeInsets.fromLTRB(55.0, 20.0, 55.0, 75.0),
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(15),
+                        color: selectedCard == 0 ? Colors.blue : Colors.amber,
                       ),
                       child: GestureDetector(
                         onTap: (() {
