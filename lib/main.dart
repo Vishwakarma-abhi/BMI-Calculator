@@ -20,7 +20,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   double weight = 30;
   double age = 18;
-  double height = 100;
+  double height = 70;
 
   int selectedCard = 0;
 
@@ -150,8 +150,8 @@ class _HomeState extends State<Home> {
                                 activeColor: Colors.white,
                                 inactiveColor: Colors.grey,
                                 value: height,
-                                min: 30,
-                                max: 120,
+                                min: 70,
+                                max: 251,
                                 divisions: 100,
                                 label: height.round().toString(),
                                 onChanged: (value) => setState(() {
